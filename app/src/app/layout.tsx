@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { M_PLUS_Rounded_1c } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
@@ -73,6 +74,7 @@ export default function RootLayout({
         <SiteHeader />
         <main className="flex-1 mx-auto w-full max-w-3xl px-4 py-6">{children}</main>
         <SiteFooter />
+        <Analytics />
       </body>
     </html>
   );
