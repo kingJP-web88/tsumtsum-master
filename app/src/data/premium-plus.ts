@@ -59,10 +59,10 @@ const RAW: RawEntry[] = [
   { id: "pp-018", name: "マンダロリアン＋", pattern: "P3", sl5to6: 20, sourceUrl: "https://game8.jp/tsumtsum/785069", sourceUrlAlt: "https://xn--bdka7fb.jp/202198.html", verified: "verified" },
   { id: "pp-019", name: "グローグー＋", pattern: "P3", sl5to6: 20, sourceUrl: "https://game8.jp/tsumtsum/785070", sourceUrlAlt: "https://xn--bdka7fb.jp/202201.html", verified: "verified" },
   { id: "pp-020", name: "ヒーロースタイルスティッチ", pattern: "P3", sl5to6: 20, sourceUrl: "https://game8.jp/tsumtsum/786554", sourceUrlAlt: "https://xn--bdka7fb.jp/202429.html", verified: "verified", limited: true, note: "変身ツム" },
-  { id: "pp-021", name: "ダグ", pattern: "P3", sl5to6: 16, sourceUrl: "https://game8.jp/tsumtsum/786555", sourceUrlAlt: "https://xn--bdka7fb.jp/202431.html", verified: "verified" },
+  { id: "pp-021", name: "ダグ", pattern: "P3", sl5to6: 16, sourceUrl: "https://game8.jp/tsumtsum/786555", sourceUrlAlt: "https://xn--bdka7fb.jp/202431.html", verified: "verified", limited: true },
   { id: "pp-022", name: "変身の達人マウイ", pattern: "P3", sl5to6: 20, sourceUrl: "https://game8.jp/tsumtsum/787752", sourceUrlAlt: "https://xn--bdka7fb.jp/202710.html", verified: "verified", limited: true, note: "変身ツム" },
   { id: "pp-023", name: "ジム・ホーキンス", pattern: "P3", sl5to6: 16, sourceUrl: "https://game8.jp/tsumtsum/787753", sourceUrlAlt: "https://xn--bdka7fb.jp/202713.html", verified: "verified", limited: true, note: "2026-06新ツム" },
-  { id: "pp-024", name: "ラーヤ＋", pattern: "P3", sl5to6: 20, sourceUrl: "https://game8.jp/tsumtsum/789307", sourceUrlAlt: "https://xn--bdka7fb.jp/202925.html", verified: "verified" },
+  { id: "pp-024", name: "ラーヤ＋", pattern: "P3", sl5to6: 20, sourceUrl: "https://game8.jp/tsumtsum/789307", sourceUrlAlt: "https://xn--bdka7fb.jp/202925.html", verified: "verified", limited: true },
 ];
 
 function expand(r: RawEntry): PremiumPlusTsum {

@@ -19,7 +19,7 @@ export default function HappinessPage() {
       <BoxChecker
         tsums={happinessTsums}
         label="ハピネスBOX進捗"
-        noticeText="※「ならびかえ」で「リリース順」にしてから入力を進めていくのがおすすめ。「持っているツムだけ表示する」のチェックを外すと分かりやすいよ！"
+        noticeText="※「ならびかえ」→「リリース順」がおすすめ。"
         costPerPull={10000}
         costUnit="コイン"
         hideTotals

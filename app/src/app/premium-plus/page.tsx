@@ -19,8 +19,8 @@ export default function PremiumPlusPage() {
       <BoxChecker
         tsums={premiumPlusTsums}
         label="プレミアムBOX＋進捗"
-        helpText="ラインナップは毎月更新されます。2026年6月時点の24体に基づく進捗です。"
-        noticeText="※「ならびかえ」で「リリース順」にしてから入力を進めていくのがおすすめ。「持っているツムだけ表示する」のチェックを外すと分かりやすいよ！"
+        helpText="毎月更新。2026年6月時点の24体です。"
+        noticeText="※「ならびかえ」→「リリース順」がおすすめ。"
         costPerPull={10000}
         costUnit="メダル"
         hideTotals

@@ -18,8 +18,6 @@ type Props = {
   hideTotals?: boolean;
 };
 
-type FilterMode = "all" | "owned" | "unowned" | "not-maxed";
-
 export default function BoxChecker({
   tsums,
   label,
@@ -30,8 +28,6 @@ export default function BoxChecker({
   hideTotals = false,
 }: Props) {
   const { owned, setCount, resetAll, hydrated } = useOwnedMap();
-  const [filter, setFilter] = useState<FilterMode>("all");
-  const [query, setQuery] = useState("");
   const [showResult, setShowResult] = useState(false);
 
   const stats = useMemo(() => computeStats(tsums, owned), [tsums, owned]);
@@ -44,18 +40,7 @@ export default function BoxChecker({
     costPerPull != null ? remainingCopies * costPerPull : null;
   const isComplete = remainingCopies === 0 && stats.total > 0;
 
-  const visible = useMemo(() => {
-    const q = query.trim();
-    return tsums.filter((t) => {
-      const count = owned[t.id] ?? 0;
-      const state = computeSkillState(count, t);
-      if (filter === "owned" && state.skillLevel === 0) return false;
-      if (filter === "unowned" && state.skillLevel > 0) return false;
-      if (filter === "not-maxed" && state.isMaxed) return false;
-      if (q && !t.name.includes(q)) return false;
-      return true;
-    });
-  }, [tsums, owned, filter, query]);
+  const visible = tsums;
 
   return (
     <div className="space-y-4">
@@ -82,41 +67,13 @@ export default function BoxChecker({
         </div>
       )}
 
-      <div
-        className="flex flex-wrap items-center gap-2 rounded-2xl bg-white p-2"
-      >
-        <input
-          type="search"
-          inputMode="search"
-          placeholder="ツム名で検索"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          className="rounded-xl px-3 py-1.5 text-sm flex-1 min-w-[140px] outline-none"
-          style={{
-            background: "var(--tt-row-mute)",
-            color: "var(--tt-text)",
-          }}
-        />
-        <select
-          value={filter}
-          onChange={(e) => setFilter(e.target.value as FilterMode)}
-          className="rounded-xl px-2 py-1.5 text-sm outline-none"
-          style={{
-            background: "var(--tt-row-mute)",
-            color: "var(--tt-text)",
-          }}
-        >
-          <option value="all">すべて</option>
-          <option value="owned">所持のみ</option>
-          <option value="unowned">未所持のみ</option>
-          <option value="not-maxed">未スキルマのみ</option>
-        </select>
+      <div className="flex justify-end">
         <button
           type="button"
           onClick={() => {
             if (confirm("入力をすべてリセットしますか？")) resetAll();
           }}
-          className="ml-auto inline-flex items-center rounded-full px-3 py-1 text-sm font-semibold text-white transition-all duration-150 hover:-translate-y-0.5 active:translate-y-0"
+          className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-semibold text-white transition-all duration-150 hover:-translate-y-0.5 active:translate-y-0"
           style={{
             background: "var(--tt-box-premium)",
             border: "1px solid rgba(255,255,255,0.55)",
@@ -220,7 +177,7 @@ function CostResult({
     >
       <div className="text-center">
         <div className="text-xs" style={{ color: "var(--tt-text-sub)" }}>
-          完売まで必要な {costUnit}
+          完売まで必要な{costUnit}
         </div>
         <div className="text-3xl font-bold tabular-nums mt-1">
           {totalCost.toLocaleString()}
@@ -234,13 +191,13 @@ function CostResult({
         style={{ borderColor: "var(--tt-divider)" }}
       >
         <div className="flex justify-between">
-          <span style={{ color: "var(--tt-text-sub)" }}>必要な残りガチャ回数</span>
+          <span style={{ color: "var(--tt-text-sub)" }}>残りガチャ回数</span>
           <span className="tabular-nums font-semibold">
             {remainingCopies.toLocaleString()} 回
           </span>
         </div>
         <div className="flex justify-between">
-          <span style={{ color: "var(--tt-text-sub)" }}>1回引く {costUnit}</span>
+          <span style={{ color: "var(--tt-text-sub)" }}>1回の{costUnit}</span>
           <span className="tabular-nums font-semibold">
             {costPerPull.toLocaleString()}
           </span>
@@ -267,7 +224,7 @@ function CostResult({
           ].join(","),
         }}
       >
-        この必要{costUnit}数を稼ぐための効率計算へ →
+        {costUnit}稼ぎ効率を計算 →
       </Link>
     </div>
   );
@@ -303,7 +260,8 @@ function generateStates(tsum: Tsum): StateOption[] {
     }
     opts.push({ value: totalCount, label: `SL${level}` });
     for (let i = 1; i < nextCost; i++) {
-      const pct = Math.round((i / nextCost) * 100);
+      // ゲーム側は切り捨て表示 (例: 1/6=16.66…% → ゲーム上は 16%)
+      const pct = Math.floor((i / nextCost) * 100);
       opts.push({
         value: totalCount + i,
         label: `SL${level} (${pct}%)`,

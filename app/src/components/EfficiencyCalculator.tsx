@@ -270,9 +270,10 @@ export default function EfficiencyCalculator() {
             className="text-sm font-semibold leading-relaxed"
             style={{ color: "var(--tt-box-premium)" }}
           >
-            ※ 正確に効率を測るときは <strong>+Coin (コインアップ)</strong> は外して計測を推奨します。<br />
+            ※ 計測時は <strong className="whitespace-nowrap">+Coin (コインアップ)</strong> <span className="whitespace-nowrap">オフ推奨。</span><br />
             <span className="font-medium" style={{ color: "var(--tt-text)" }}>
-              (実プレイでは +Coin を使うと獲得コイン数が増えるので、コイン稼ぎ効率は実際にはこれより高くなります)
+              　(<span className="whitespace-nowrap">+Coin 使用時は</span>
+              <span className="whitespace-nowrap">実効率がさらに上がります</span>)
             </span>
           </p>
           <div className="space-y-2">
@@ -284,7 +285,7 @@ export default function EfficiencyCalculator() {
                 </span>
               )}
             </div>
-            <div className="flex flex-wrap gap-2">
+            <div className="grid grid-cols-3 gap-2">
               {/* note: +Coin (コインアップ) は除外。実効率を測りたいときは使わず、純粋なツムスキルだけで計測するのが正確 */}
               {COIN_ITEMS.map((it) => {
                 const active = activeItems.has(it.key);
@@ -294,7 +295,7 @@ export default function EfficiencyCalculator() {
                     type="button"
                     onClick={() => toggleItem(it.key)}
                     aria-pressed={active}
-                    className="inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold transition-all duration-150 hover:-translate-y-0.5"
+                    className="flex items-center justify-between gap-0.5 rounded-full px-2 py-1 text-[11px] font-semibold transition-all duration-150 hover:-translate-y-0.5 whitespace-nowrap"
                     style={
                       active
                         ? {
@@ -322,13 +323,13 @@ export default function EfficiencyCalculator() {
             </div>
           </div>
           <MetricStrip
-            label="コイン / 分 (1分あたりの効率)"
+            label={<><span className="whitespace-nowrap">コイン / 分</span>{" "}<span className="whitespace-nowrap">(1分効率)</span></>}
             value={Math.round(coin.coinPerMin)}
             unit="コイン/分"
             hint={
               coinInputMode === "stopwatch"
-                ? "ストップウォッチで時間を計り、獲得コインを入力すると算出されます"
-                : "プレイ時間と獲得コインを入力すると算出されます"
+                ? "計測時間と獲得コインで算出されます"
+                : "プレイ時間と獲得コインで算出されます"
             }
           />
 
@@ -349,7 +350,7 @@ export default function EfficiencyCalculator() {
           </Field>
           <Result
             heading="コイン稼ぎ"
-            dailyLabel="1日あたりの収入"
+            dailyLabel="1日あたりの稼ぎ"
             daily={Math.round(coin.dailyCoin)}
             dailyUnit="コイン"
             days={coin.days}
@@ -410,13 +411,13 @@ export default function EfficiencyCalculator() {
             <NumberInput value={earnedMedal} onChange={setEarnedMedal} step={100} min={0} />
           </Field>
           <MetricStrip
-            label="メダル / 分 (1分あたりの効率)"
+            label={<><span className="whitespace-nowrap">メダル / 分</span>{" "}<span className="whitespace-nowrap">(1分効率)</span></>}
             value={Math.round(medal.medalPerMin)}
             unit="メダル/分"
             hint={
               coinInputMode === "stopwatch"
-                ? "ストップウォッチで時間を計り、獲得メダルを入力すると算出されます"
-                : "プレイ時間と獲得メダルを入力すると算出されます"
+                ? "計測時間と獲得メダルで算出されます"
+                : "プレイ時間と獲得メダルで算出されます"
             }
           />
 
@@ -437,13 +438,16 @@ export default function EfficiencyCalculator() {
           </Field>
           {overCap && (
             <p className="text-sm font-semibold leading-relaxed" style={{ color: "var(--tt-box-premium)" }}>
-              ※ メダル所持上限は {numberFmt(MEDAL_CAP)} 枚なので、実際は何回かに分けて消費する必要があります。
-              <span className="font-medium" style={{ color: "var(--tt-text)" }}> (計算自体は目標値で行います)</span>
+              ※ <span className="whitespace-nowrap">メダル所持上限は</span>{" "}
+              <span className="whitespace-nowrap">{numberFmt(MEDAL_CAP)} 枚。</span><br />
+              <span className="font-medium" style={{ color: "var(--tt-text)" }}>
+                　(<span className="whitespace-nowrap">計算は目標値で行います</span>)
+              </span>
             </p>
           )}
           <Result
             heading="メダル稼ぎ"
-            dailyLabel="1日あたりの収入"
+            dailyLabel="1日あたりの稼ぎ"
             daily={Math.round(medal.dailyMedal)}
             dailyUnit="メダル"
             days={medal.days}
@@ -631,11 +635,11 @@ function Stopwatch({
 
   return (
     <div
-      className="rounded-2xl p-3 flex items-center gap-3"
+      className="rounded-2xl p-3 flex items-center gap-2"
       style={{ background: "var(--tt-row-mute)" }}
     >
       <div
-        className="flex-1 text-center tabular-nums font-black text-3xl tracking-tight"
+        className="flex-1 min-w-0 text-center tabular-nums font-black text-2xl sm:text-3xl tracking-tight"
         style={{ color: "var(--tt-text)" }}
         aria-live="polite"
       >
@@ -644,7 +648,7 @@ function Stopwatch({
       <button
         type="button"
         onClick={onToggle}
-        className="rounded-full px-4 py-1.5 text-sm font-semibold text-white transition-all duration-150 hover:-translate-y-0.5 active:translate-y-0"
+        className="rounded-full px-4 py-1.5 text-sm font-semibold text-white transition-all duration-150 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap shrink-0"
         style={{
           background: running ? "var(--tt-box-premium)" : "var(--tt-mint)",
           border: "1px solid rgba(255,255,255,0.55)",
@@ -661,7 +665,7 @@ function Stopwatch({
       <button
         type="button"
         onClick={onReset}
-        className="rounded-full px-3 py-1.5 text-sm font-semibold transition-colors"
+        className="rounded-full px-3 py-1.5 text-sm font-semibold transition-colors whitespace-nowrap shrink-0"
         style={{
           background: "transparent",
           color: "var(--tt-text-sub)",
@@ -680,7 +684,7 @@ function MetricStrip({
   unit,
   hint,
 }: {
-  label: string;
+  label: React.ReactNode;
   value: number;
   unit: string;
   hint?: string | null;
@@ -690,7 +694,7 @@ function MetricStrip({
       className="rounded-xl px-4 py-3 flex items-baseline justify-between gap-2"
       style={{ background: "var(--tt-rose-bg)" }}
     >
-      <span className="text-sm font-semibold" style={{ color: "var(--tt-text)" }}>
+      <span className="text-sm font-semibold shrink-0" style={{ color: "var(--tt-text)" }}>
         {label}
       </span>
       {value > 0 ? (
@@ -905,11 +909,11 @@ function Result({
         </span>
       </div>
       <div className="flex items-baseline justify-between gap-2">
-        <span className="text-sm" style={{ color: "var(--tt-text-sub)" }}>達成日数</span>
-        <span className="tabular-nums">
+        <span className="text-sm whitespace-nowrap shrink-0" style={{ color: "var(--tt-text-sub)" }}>達成日数</span>
+        <span className="tabular-nums text-right">
           {days === null ? (
-            <span className="text-base font-semibold" style={{ color: "var(--tt-box-premium)" }}>
-              未入力項目があるため算出不可
+            <span className="text-base font-semibold whitespace-nowrap" style={{ color: "var(--tt-box-premium)" }}>
+              未入力のため算出不可
             </span>
           ) : (
             <>
