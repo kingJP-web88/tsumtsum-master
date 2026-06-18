@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"  stop-color="#FFD5E5"/>
+      <stop offset="25%" stop-color="#FFE9C2"/>
+      <stop offset="50%" stop-color="#FFF6B3"/>
+      <stop offset="75%" stop-color="#C7F0DA"/>
+      <stop offset="100%" stop-color="#C5E8F8"/>
+    </linearGradient>
+    <linearGradient id="rainbow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#FF2D8A"/>
+      <stop offset="25%"  stop-color="#FFB400"/>
+      <stop offset="50%"  stop-color="#2BB673"/>
+      <stop offset="75%"  stop-color="#4FB6E6"/>
+      <stop offset="100%" stop-color="#E63946"/>
+    </linearGradient>
+    <filter id="logoShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="0" flood-color="rgba(0,0,0,0.18)"/>
+    </filter>
+    <style>
+      .logo {
+        font-family: 'Yu Gothic UI', 'Meiryo', 'Hiragino Sans', sans-serif;
+        font-weight: 900;
+        font-size: 132px;
+        letter-spacing: -0.01em;
+        paint-order: stroke fill;
+        stroke: #ffffff;
+        stroke-width: 8;
+        stroke-linejoin: round;
+      }
+      .sub {
+        font-family: 'Yu Gothic UI', 'Meiryo', 'Hiragino Sans', sans-serif;
+        font-weight: 700;
+        font-size: 36px;
+        fill: #2A4A6E;
+      }
+      .feature {
+        font-family: 'Yu Gothic UI', 'Meiryo', 'Hiragino Sans', sans-serif;
+        font-weight: 700;
+        font-size: 28px;
+        fill: #3A5A7C;
+      }
+      .url {
+        font-family: 'Yu Gothic UI', 'Meiryo', 'Hiragino Sans', sans-serif;
+        font-weight: 700;
+        font-size: 24px;
+        fill: #6B7B8C;
+        letter-spacing: 0.02em;
+      }
+    </style>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- 上下のレインボーライン -->
+  <rect x="0" y="0" width="1200" height="8" fill="url(#rainbow)"/>
+  <rect x="0" y="622" width="1200" height="8" fill="url(#rainbow)"/>
+
+  <!-- 中央の白カード -->
+  <rect x="80" y="80" width="1040" height="470" rx="36" fill="#ffffff" fill-opacity="0.86"/>
+
+  <!-- ジャンルドット -->
+  <g transform="translate(600, 180)">
+    <circle cx="-150" cy="0" r="14" fill="#4FB6E6"/>
+    <circle cx="-50"  cy="0" r="14" fill="#FF2D8A"/>
+    <circle cx="50"   cy="0" r="14" fill="#7BD0FF"/>
+    <circle cx="150"  cy="0" r="14" fill="#FFB400"/>
+  </g>
+
+  <!-- メインロゴ「ツムツム完売マスター」 -->
+  <g filter="url(#logoShadow)">
+    <text x="600" y="360" text-anchor="middle" class="logo">
+      <tspan fill="#FF2D8A">ツ</tspan><tspan fill="#FFB400">ム</tspan><tspan fill="#2BB673">ツ</tspan><tspan fill="#4FB6E6">ム</tspan><tspan fill="#E63946">完売</tspan><tspan fill="#003B6F">マスター</tspan>
+    </text>
+  </g>
+
+  <!-- サブテキスト -->
+  <text x="600" y="430" text-anchor="middle" class="sub">完売進捗・必要コイン/メダル数を自動算出</text>
+
+  <!-- 4機能の説明 -->
+  <text x="600" y="490" text-anchor="middle" class="feature">ハピネス／プレミアム／プレミアム＋ ＆ 効率計算</text>
+
+  <!-- URL -->
+  <text x="600" y="560" text-anchor="middle" class="url">tsumtsum-master.vercel.app</text>
+</svg>

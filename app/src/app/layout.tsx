@@ -30,6 +30,23 @@ export const metadata: Metadata = {
       "プレミアムBOX＋・プレミアムBOX・ハピネスBOXの完売進捗をブラウザだけで管理。",
     type: "website",
     locale: "ja_JP",
+    url: SITE,
+    siteName: "ツムツム完売マスター",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "ツムツム完売マスター｜完売進捗・必要コイン/メダル数を自動算出",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ツムツム完売マスター",
+    description:
+      "プレミアムBOX＋・プレミアムBOX・ハピネスBOXの完売進捗をブラウザだけで管理。",
+    images: ["/og-image.png"],
   },
   robots: { index: true, follow: true },
 };
