@@ -49,6 +49,9 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
   },
   robots: { index: true, follow: true },
+  other: ADSENSE_CLIENT
+    ? { "google-adsense-account": ADSENSE_CLIENT }
+    : undefined,
 };
 
 export default function RootLayout({
