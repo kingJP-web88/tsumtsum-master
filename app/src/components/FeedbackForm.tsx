@@ -1,4 +1,4 @@
-const X_HANDLE = "choitoku_lab";
+const X_HANDLE = "engine_buun";
 const X_URL = `https://x.com/${X_HANDLE}`;
 const X_INTENT_URL = `https://x.com/intent/tweet?text=${encodeURIComponent(`@${X_HANDLE} 【ツムツム完売マスター】\n`)}`;
 
