@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 :root {
+  color-scheme: light;
+
   /* Tsum Tsum design tokens */
   --tt-bg-base: #80D1FF;
   --tt-bg-warm: #FFE066;

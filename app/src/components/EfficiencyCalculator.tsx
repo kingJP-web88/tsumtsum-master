@@ -285,7 +285,7 @@ export default function EfficiencyCalculator() {
                 </span>
               )}
             </div>
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid max-[359px]:grid-cols-2 grid-cols-3 gap-2">
               {/* note: +Coin (コインアップ) は除外。実効率を測りたいときは使わず、純粋なツムスキルだけで計測するのが正確 */}
               {COIN_ITEMS.map((it) => {
                 const active = activeItems.has(it.key);
@@ -639,7 +639,7 @@ function Stopwatch({
       style={{ background: "var(--tt-row-mute)" }}
     >
       <div
-        className="flex-1 min-w-0 overflow-hidden text-center tabular-nums font-black text-xl sm:text-3xl tracking-tighter"
+        className="flex-1 min-w-0 overflow-hidden text-center tabular-nums font-black max-[359px]:text-base text-xl sm:text-3xl tracking-tighter"
         style={{ color: "var(--tt-text)" }}
         aria-live="polite"
       >
@@ -648,7 +648,7 @@ function Stopwatch({
       <button
         type="button"
         onClick={onToggle}
-        className="rounded-full px-3 sm:px-4 py-1.5 text-sm font-semibold text-white transition-all duration-150 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap shrink-0"
+        className="rounded-full max-[359px]:px-2 px-3 sm:px-4 py-1.5 text-sm font-semibold text-white transition-all duration-150 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap shrink-0"
         style={{
           background: running ? "var(--tt-box-premium)" : "var(--tt-mint)",
           border: "1px solid rgba(255,255,255,0.55)",
@@ -665,7 +665,7 @@ function Stopwatch({
       <button
         type="button"
         onClick={onReset}
-        className="rounded-full px-2.5 sm:px-3 py-1.5 text-sm font-semibold transition-colors whitespace-nowrap shrink-0"
+        className="rounded-full max-[359px]:px-2 px-2.5 sm:px-3 py-1.5 text-sm font-semibold transition-colors whitespace-nowrap shrink-0"
         style={{
           background: "transparent",
           color: "var(--tt-text-sub)",
@@ -912,7 +912,7 @@ function Result({
         <span className="text-sm whitespace-nowrap shrink-0" style={{ color: "var(--tt-text-sub)" }}>達成日数</span>
         <span className="tabular-nums text-right">
           {days === null ? (
-            <span className="text-base font-semibold whitespace-nowrap" style={{ color: "var(--tt-box-premium)" }}>
+            <span className="text-base font-semibold" style={{ color: "var(--tt-box-premium)" }}>
               未入力のため算出不可
             </span>
           ) : (
