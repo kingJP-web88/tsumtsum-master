@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s｜ツムツム完売マスター",
   },
   description:
-    "LINE Disney ツムツムのプレミアムBOX＋・プレミアムBOX・ハピネスBOXの完売進捗を簡単に管理できる無料ツール。データはブラウザに保存されます。",
+    "LINE Disney ツムツムのプレミアムBOX＋・プレミアムBOX・ハピネスBOXの完売進捗を簡単に調べられる無料ツール。データはブラウザに保存されます。",
   openGraph: {
     title: "ツムツム完売マスター",
     description:
