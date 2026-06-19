@@ -20,7 +20,7 @@ const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
   title: {
-    default: "ツムツム完売マスター｜プレミアムBOX＋・プレミアムBOX・ハピネスBOX",
+    default: "ツムツム完売マスター",
     template: "%s｜ツムツム完売マスター",
   },
   description:
@@ -62,6 +62,17 @@ export default function RootLayout({
   return (
     <html lang="ja" className={`h-full antialiased ${roundedFont.variable}`}>
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "ツムツム完売マスター",
+              url: SITE,
+            }),
+          }}
+        />
         {ADSENSE_CLIENT && (
           <Script
             async
