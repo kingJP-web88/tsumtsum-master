@@ -639,7 +639,7 @@ function Stopwatch({
       style={{ background: "var(--tt-row-mute)" }}
     >
       <div
-        className="flex-1 min-w-0 text-center tabular-nums font-black text-2xl sm:text-3xl tracking-tight"
+        className="flex-1 min-w-0 overflow-hidden text-center tabular-nums font-black text-xl sm:text-3xl tracking-tighter"
         style={{ color: "var(--tt-text)" }}
         aria-live="polite"
       >
@@ -648,7 +648,7 @@ function Stopwatch({
       <button
         type="button"
         onClick={onToggle}
-        className="rounded-full px-4 py-1.5 text-sm font-semibold text-white transition-all duration-150 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap shrink-0"
+        className="rounded-full px-3 sm:px-4 py-1.5 text-sm font-semibold text-white transition-all duration-150 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap shrink-0"
         style={{
           background: running ? "var(--tt-box-premium)" : "var(--tt-mint)",
           border: "1px solid rgba(255,255,255,0.55)",
@@ -665,7 +665,7 @@ function Stopwatch({
       <button
         type="button"
         onClick={onReset}
-        className="rounded-full px-3 py-1.5 text-sm font-semibold transition-colors whitespace-nowrap shrink-0"
+        className="rounded-full px-2.5 sm:px-3 py-1.5 text-sm font-semibold transition-colors whitespace-nowrap shrink-0"
         style={{
           background: "transparent",
           color: "var(--tt-text-sub)",
