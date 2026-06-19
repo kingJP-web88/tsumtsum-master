@@ -1,6 +1,9 @@
 import PageHeading from "@/components/PageHeading";
 
-export const metadata = { title: "利用規約" };
+export const metadata = {
+  title: "利用規約",
+  alternates: { canonical: "/terms" },
+};
 
 export default function TermsPage() {
   return (

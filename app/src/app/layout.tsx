@@ -49,6 +49,7 @@ export const metadata: Metadata = {
       "プレミアムBOX＋・プレミアムBOX・ハピネスBOXの完売進捗をブラウザだけで管理。",
     images: ["/og-image.png"],
   },
+  alternates: { canonical: "/" },
   robots: { index: true, follow: true },
   other: ADSENSE_CLIENT
     ? { "google-adsense-account": ADSENSE_CLIENT }

@@ -7,6 +7,7 @@ export const metadata = {
   title: "プレミアムBOX完売進捗",
   description:
     "プレミアムBOX常駐ツムのスキルレベルを記録して完売までの進捗を可視化。",
+  alternates: { canonical: "/premium" },
 };
 
 export default function PremiumPage() {

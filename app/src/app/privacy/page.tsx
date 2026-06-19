@@ -1,6 +1,9 @@
 import PageHeading from "@/components/PageHeading";
 
-export const metadata = { title: "プライバシーポリシー" };
+export const metadata = {
+  title: "プライバシーポリシー",
+  alternates: { canonical: "/privacy" },
+};
 
 export default function PrivacyPage() {
   return (

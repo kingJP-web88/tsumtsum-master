@@ -7,6 +7,7 @@ export const metadata = {
   title: "ハピネスBOX完売進捗",
   description:
     "ハピネスBOX 14体のツムのスキルレベルを記録して完売進捗を確認。",
+  alternates: { canonical: "/happiness" },
 };
 
 export default function HappinessPage() {

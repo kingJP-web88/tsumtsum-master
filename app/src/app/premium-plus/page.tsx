@@ -7,6 +7,7 @@ export const metadata = {
   title: "プレミアムBOX＋完売進捗",
   description:
     "プレミアムBOX＋ 24体のスキルレベルを記録して、完売までの進捗とコインを可視化。",
+  alternates: { canonical: "/premium-plus" },
 };
 
 export default function PremiumPlusPage() {
