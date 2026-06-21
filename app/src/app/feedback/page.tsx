@@ -7,6 +7,7 @@ export const metadata = {
   description:
     "ツムツム完売マスターへの意見・要望・バグ報告は X (旧Twitter) でお寄せください。",
   alternates: { canonical: "/feedback" },
+  robots: { index: false, follow: true },
 };
 
 export default function FeedbackPage() {

@@ -8,6 +8,7 @@ export const metadata = {
   description:
     "ハピネスBOX 14体のツムのスキルレベルを記録して完売進捗を確認。",
   alternates: { canonical: "/happiness" },
+  robots: { index: false, follow: true },
 };
 
 export default function HappinessPage() {

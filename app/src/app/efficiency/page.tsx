@@ -8,6 +8,7 @@ export const metadata = {
   description:
     "1プレイあたりの平均コインと1日のプレイ回数から、目標までの達成日数を逆算。プラスツム×ミッションのメダル稼ぎ効率もシミュレーション。",
   alternates: { canonical: "/efficiency" },
+  robots: { index: false, follow: true },
 };
 
 export default function EfficiencyPage() {

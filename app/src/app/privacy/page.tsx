@@ -3,6 +3,7 @@ import PageHeading from "@/components/PageHeading";
 export const metadata = {
   title: "プライバシーポリシー",
   alternates: { canonical: "/privacy" },
+  robots: { index: false, follow: true },
 };
 
 export default function PrivacyPage() {

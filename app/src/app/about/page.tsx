@@ -3,6 +3,7 @@ import PageHeading from "@/components/PageHeading";
 export const metadata = {
   title: "サイトについて",
   alternates: { canonical: "/about" },
+  robots: { index: false, follow: true },
 };
 
 export default function AboutPage() {
