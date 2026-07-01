@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
   },
   alternates: { canonical: "/" },
-  robots: { index: true, follow: true },
+  robots: { index: false, follow: false },
   other: ADSENSE_CLIENT
     ? { "google-adsense-account": ADSENSE_CLIENT }
     : undefined,
